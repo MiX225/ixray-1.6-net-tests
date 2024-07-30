@@ -4,6 +4,14 @@
   <h4>Stable repository of the modernized <i>X-Ray 1.6</i> game engine</h4>
 
   <p>
+    English
+    |
+    <a href="./doc/README.rus.md">
+      Русский
+    </a>
+  </p>
+
+  <p>
     <a href="https://github.com/ixray-team">
       <img src="./src/Assets/Splash_long.png" alt="IX-Ray 1.6" />
     </a>
@@ -13,7 +21,7 @@
     <a href="./LICENSE.md">
       <img src="https://img.shields.io/badge/License-Non--commercial-red.svg" alt="License" />
     </a>
-    <a href="https://github.com/ixray-team/ixray-1.6-stcop/releases/tag/r0.10">
+    <a href="https://github.com/ixray-team/ixray-1.6-stcop/releases/tag/r1.0">
       <img src="https://img.shields.io/github/v/release/ixray-team/ixray-1.6-stcop?include_prereleases&label=Release" alt="Latest release" />
     </a>
     <a href="https://github.com/ixray-team/ixray-1.6-stcop/releases">
@@ -51,29 +59,31 @@ Latest release of the engine can be downloaded on the [releases page](https://gi
 
 ## Features
 
-- Architectures support: __x86-64__, __x86__
+- Architectures support: __x64__
 - __CMake__ build system
 - Supported renderers: __DirectX 9.0c__, __DirectX 11__
 - Improved performance and better FPS
 - [Extended opportunities for modmakers](https://github.com/ixray-team/ixray-1.6-stcop/wiki)
-- [Fixed original bugs](https://github.com/ixray-team/ixray-1.6-stcop/wiki/%D0%98%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B1%D0%B0%D0%B3%D0%B8)
+- Fixed original bugs
+- Increased level loading speed by 3-4 times
 - [Debugging tools support: __ASAN__, __RenderDoc__ and __LuaPanda__](https://github.com/ixray-team/ixray-1.6-stcop/wiki/%D0%98%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B8)
 - [Supported __DLTX__ and __XMLOverride__](https://github.com/ixray-team/ixray-1.6-stcop/wiki#addons)
-- [Supported in-game debugging tools](https://github.com/ixray-team/ixray-1.6-stcop/wiki/In%E2%80%90Game-debugging-tools)
+- Supported in-game debugging tools
 - [Supported __TTF__ font system](https://github.com/ixray-team/ixray-1.6-stcop/wiki/Fonts)
-- [Extended rendering features](https://github.com/ixray-team/ixray-1.6-stcop/wiki/Render-features)
+- Extended rendering features
 - Supported __BC7__ compression format
-- [Extended gameplay features](https://github.com/ixray-team/ixray-1.6-stcop/wiki/Gameplay-features)
+- Supported NVIDIA DLSS and AMD FidelityFX Super Resolution 2 (FSR2) Technologies
+- Extended gameplay features
 - [Extended __UI__ features](https://github.com/ixray-team/ixray-1.6-stcop/wiki/UI:-%D0%9E%D0%B1%D1%89%D0%B5%D0%B5)
 - [Extended __Lua__ features](https://github.com/ixray-team/ixray-1.6-stcop/wiki#%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-lua)
 
 ## Minimal system requirements
 
-- OS: __Windows 7__ or newer
+- OS: __Windows 7 SP1__ with installed [Platform Update](https://msdn.microsoft.com/en-us/library/windows/desktop/jj863687.aspx) or newer
 - CPU: Supports __SSE2__ and newer instructions
-- RAM: 4GB
-- GPU: Support for __shader model 3.0__ or newer
-- GPU VRAM: 512MB
+- RAM: 6 GB
+- GPU: Support for __Shader Model 3.0__ or newer
+- GPU VRAM: 512 MB
 - DirectX: __9.0с__ or newer
 
 ## Requirements
@@ -83,6 +93,10 @@ For launching:
 - [OpenAL Driver](https://www.openal.org/downloads/)
 - [Visual C++ Redistributable](https://www.microsoft.com/en-gb/download/details.aspx?id=48145)
 - [DirectX End-User Runtime](https://www.microsoft.com/en-us/download/details.aspx?id=35)
+
+- Install original game from Steam or GOG
+- Delete in main folder of the game: `bin`, `gamedata` (if exists)
+- Unpack archive to main folder of the game
 
 For building:
 
@@ -158,7 +172,7 @@ To build from the console follow steps below
   - `Compressor-x64`
 
   ```sh
-  cmake --preset preset-name
+  cmake --preset <preset-name>
   # For example:
   # cmake --preset Engine-x64
   ```
@@ -170,16 +184,20 @@ To build from the console follow steps below
   - `Release`
 
   ```sh
-  cmake --build --preset preset-name-configuration
+  cmake --build --preset <preset-name-configuration>
   # For example:
   # cmake --build --preset Engine-x64-Debug
   ```
 
-- Run `generate-patch.bat` to get modified files and packed assets
+- Run script to get modified files and packed assets:
+
+  ```sh
+  .\util\generate-patch.bat
+  ```
 
 ## Changelog
 
-All significant changes to this repository are documented in [this](CHANGELOG.md) file
+All significant changes to this repository are documented in [this](./CHANGELOG.md) file
 
 ## License
 

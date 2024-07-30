@@ -1,5 +1,7 @@
 # Security policy
 
+English | [Русский](./doc/SECURITY.rus.md)
+
 ## Supported versions
 
 See latest release

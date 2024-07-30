@@ -1,5 +1,7 @@
 # Contributing guide
 
+English | [Русский](./doc/CONTRIBUTING.rus.md)
+
 __IX-Ray__ project __contributing__ guide
 
 ## Overview
