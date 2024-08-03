@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../../../level.h"
 template <class Object>
 CStateBurerShield<Object>::CStateBurerShield (Object *obj) : inherited(obj)
 {
@@ -34,12 +34,17 @@ void   CStateBurerShield<Object>::execute()
 		 this->object->m_shield_keep_particle != 0 && 
 		 current_time() > m_next_particle_allowed )
 	{
-		this->object->CParticlesPlayer::StartParticles	(this->object->m_shield_keep_particle, 
-													 Fvector().set(0,1,0), 
-													 this->object->ID(), 
-													 -1, 
-													 true);
-
+		if (IsGameTypeSingle()) {
+			this->object->CParticlesPlayer::StartParticles(this->object->m_shield_keep_particle,
+				Fvector().set(0, 1, 0),
+				this->object->ID(),
+				-1,
+				true);
+		}
+		else
+		{
+			this->object->shieldParticlesMP();
+		}
 		m_next_particle_allowed		=	current_time() + this->object->m_shield_keep_particle_period;
 	}
 
